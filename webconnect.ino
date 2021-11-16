@@ -1,5 +1,4 @@
 #include <ESP8266HTTPClient.h>
-
 #include <ESP8266WiFi.h>
 char* ssid = ""; // put ssid
 char* password = ""; // put password
@@ -18,32 +17,21 @@ void setup() {
   Serial.println("WiFi Connected");
   server.begin();
   Serial.println(WiFi.localIP());
-  //pinMode(D2,OUTPUT);
-  
-    
 }
 
 void loop(){
 if(WiFi.status()== WL_CONNECTED){
       HTTPClient http;
-      //string rfid = //scan
-      String serverPath ="?rfid=200";
-      //serverpath+=rfid;
-      
-      
-      // Your Domain name with URL path or IP address with path
+      string rfid =""
+      String serverPath = serverName+ "?rfid=" + rfid;
       http.begin(serverPath);
-      
-      // Send HTTP GET request
-      int httpResponseCode = http.GET();
+      int httpResponseCode = http.GET(); // // Send HTTP GET request
       
       if (httpResponseCode>0) {
         Serial.print("http Response code: ");
         Serial.println(httpResponseCode);
         String payload = http.getString();
-        //Serial.println(payload);
-        
-        for(int i=20; i<30; i++){
+        for(int i=20; i<30; i++){ //get only required
           Serial.print(payload[i]);
         }
       }
@@ -51,12 +39,10 @@ if(WiFi.status()== WL_CONNECTED){
         Serial.print("Error code: ");
         Serial.println(httpResponseCode);
       }
-      // Free resources
       http.end();
     }
     else {
       Serial.println("WiFi Disconnected");
     }
-
   delay(5000);
 }
