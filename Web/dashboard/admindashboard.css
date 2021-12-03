@@ -1,0 +1,26 @@
+.btn.btn-primary {
+    color: #fff;
+    background-color: #0089ff;
+    border-color: #0088ff;
+}
+.navbar.navbar-expand-sm.navbar-dark.bg-dark{
+    border-radius: 0px
+}
+th{
+    text-align:center !important;
+    font-size:18px;
+}
+#innertd{
+    padding-top:0px;
+    padding-bottom:0px;
+   
+}
+#outertb{
+    margin: 4px;
+    border: 2px solid blue;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+.table{
+    margin-bottom:0px !important;
+}
